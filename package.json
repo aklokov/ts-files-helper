@@ -1,7 +1,7 @@
 {
-  "name": "de-redux",
+  "name": "ts-files-helper",
   "version": "1.0.0",
-  "description": "",
+  "description": "library with functions used in reexport generator and de-redux",
   "files": [
     "build/src"
   ],

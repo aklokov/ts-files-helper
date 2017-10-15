@@ -1,2 +1,2 @@
-# de-redux
-generator for redux actions, switch and dispatch-subscribe service
+# ts-files-helper
+library with functions used in reexport generator and de-redux
