@@ -5,7 +5,7 @@
   "files": [
     "build/src"
   ],
-  "main": "build/src/index.js",
+  "main": "build/src/lib.js",
   "typings": "build/src/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
