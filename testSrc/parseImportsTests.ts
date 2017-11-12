@@ -9,7 +9,7 @@ describe('parseImports', function (): void {
 
     const content = `
     import { Type1 } from '.';
-    import { Type2 } from './';
+    import { Type2 } from '.';
 `;
     const expected: Import[] = [
       { typeName: 'Type1', aliasName: 'Type1', realPath: './someDir/dir2' },
@@ -41,33 +41,6 @@ describe('parseImports', function (): void {
     // assert
     checkImports(result, expected);
   });
-
-  it('should return aliased imports', async function (): Promise<void> {
-    // arrange
-    const path = './someDir/dir2';
-
-    const content = `
-    import { Type1 } from '@tools';
-    import { Type2 } from '@api/dir';
-`;
-    const baseUrl = './app';
-    const paths = {
-      '@api/*': ['api/*'],
-      '@tools': ['tools/']
-    };
-
-    const expected: Import[] = [
-      { typeName: 'Type1', aliasName: 'Type1', realPath: './app/tools' },
-      { typeName: 'Type2', aliasName: 'Type2', realPath: './app/api/dir' }
-    ];
-
-    // act
-    const result = parseImports({ baseUrl, paths }, content, path);
-
-    // assert
-    checkImports(result, expected);
-  });
-
 });
 
 export function checkImports(imports: Import[], expected: Import[]): void {
