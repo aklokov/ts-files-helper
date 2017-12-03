@@ -10,7 +10,11 @@ export function collectFolders(globs: string | string[]): Promise<Folder[]> {
     globs = [globs];
   }
 
-  return collectFoldersImpl(globs);
+  return collectFoldersImpl(globs.map(normalize));
+}
+
+function normalize(glob: string): string {
+  return glob.replace(/\\/g, '/');
 }
 
 async function collectFoldersImpl(globs: string[]): Promise<Folder[]> {

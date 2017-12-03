@@ -16,9 +16,12 @@ function collectFolders(globs) {
     if (!Array.isArray(globs)) {
         globs = [globs];
     }
-    return collectFoldersImpl(globs);
+    return collectFoldersImpl(globs.map(normalize));
 }
 exports.collectFolders = collectFolders;
+function normalize(glob) {
+    return glob.replace(/\\/g, '/');
+}
 function collectFoldersImpl(globs) {
     return __awaiter(this, void 0, void 0, function* () {
         const allFiles = yield Promise.all(globs.map(glob => readGlob_1.readGlob(glob)));

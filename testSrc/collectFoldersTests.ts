@@ -24,7 +24,22 @@ describe('collectFolders', function (): void {
     const result = await collectFolders(['./testFolder/**/*.ts', './testFolder/**/*.tsx']);
 
     // assert
-    expect(result.length).to.be.equal(3);
+    expect(result.length).to.be.equal(expected.length);
+    testFolders(result, expected);
+  });
+
+  it('should collect folders with back slash', async function (): Promise<void> {
+    // arrange
+    const expected: Folder[] = [{
+      path: './testFolder/childFolder',
+      files: ['file4.ts']
+    }];
+
+    // act
+    const result = await collectFolders('.\\testFolder\\childFolder\\**\\*.ts');
+
+    // assert
+    expect(result.length).to.be.equal(expected.length);
     testFolders(result, expected);
   });
 });
