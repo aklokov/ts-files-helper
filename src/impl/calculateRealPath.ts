@@ -22,11 +22,11 @@ function applyPath(tsconfig: any, split: string[]): string {
 }
 
 function tryReplace(tsconfig: any, first: string): string {
-  const pathstart: string = tsconfig.baseUrl;
   if (!tsconfig || !tsconfig.baseUrl) {
     return first;
   }
 
+  const pathstart: string = tsconfig.baseUrl;
   let result = first;
   _.forIn(tsconfig.paths, (repl, path) => {
     if (path === first) {
