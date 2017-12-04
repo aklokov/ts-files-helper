@@ -1,5 +1,4 @@
-import { parseImports } from '../src/lib';
-import { Import } from '../src/interface';
+import { parseImports, Import } from '../src/lib';
 import { expect } from 'chai';
 
 describe('parseImports', function (): void {

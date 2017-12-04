@@ -20,10 +20,10 @@ function applyPath(tsconfig, split) {
     return split.join('/');
 }
 function tryReplace(tsconfig, first) {
-    const pathstart = tsconfig.baseUrl;
     if (!tsconfig || !tsconfig.baseUrl) {
         return first;
     }
+    const pathstart = tsconfig.baseUrl;
     let result = first;
     _.forIn(tsconfig.paths, (repl, path) => {
         if (path === first) {

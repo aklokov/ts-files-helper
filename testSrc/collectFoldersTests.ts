@@ -1,5 +1,4 @@
-import { Folder } from '../src/interface';
-import { collectFolders } from '../src/lib';
+import { collectFolders, Folder } from '../src/lib';
 import { expect } from 'chai';
 import { toStringMap } from 'hash-map';
 import * as _ from 'lodash';
